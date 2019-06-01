@@ -1,0 +1,153 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Carbonado
+
+Carbonado API documentation
+
+
+# Allowed HTTPs requests:
+###### PUT     : To create resource 
+###### POST    : Update resource
+###### GET     : Get a resource or list of resources
+###### DELETE  : To delete resource
+
+## Description Of Usual Server Responses:
+######200 OK - the request was successful (some API calls may return 201 instead).
+######201 Created - the request was successful and a resource was created.
+######204 No Content - the request was successful but there is no representation to return (i.e. the response is empty).
+######400 Bad Request - the request could not be understood or was missing required parameters.
+######401 Unauthorized - authentication failed or user doesn't have permissions for requested operation.
+######403 Forbidden - access denied.404 Not Found - resource was not found.
+######405 Method Not Allowed - requested method is not supported for resource.
+
+## Login [POST]
+
+Login qilish uchun api. 
+###### Url : http://carbonadowedding.uz/api/login
+
++ Request (application/json)
+
+        {
+            "username": "admin1",
+            "password": "123"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "Successfully logined",
+            "token": "6ArnNe4uz_WV9YbyZSg1lPMysf622WY-",
+            "user_type": 2
+        }
+        
+## Category [GET]
+
+Category larni olish uchun api. 
+###### Url : http://carbonadowedding.uz/api/category
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "categories": [
+                {
+                    "id": "9",
+                    "title": "Маникюр "
+                },
+                {
+                    "id": "8",
+                    "title": "Стилист"
+                },
+                {
+                    "id": "4",
+                    "title": "Косметолог"
+                },
+                {
+                    "id": "5",
+                    "title": "Нарашивание ресниц"
+                },
+                {
+                    "id": "6",
+                    "title": "Колорист"
+                },
+                {
+                    "id": "7",
+                    "title": "Депиляция"
+                },
+                {
+                    "id": "10",
+                    "title": "Педикюр"
+                },
+                {
+                    "id": "11",
+                    "title": "Кош териш"
+                }
+            ]
+        }
+
+## Specialist [POST]
+
+Login qilish uchun api. 
+###### Url : http://carbonadowedding.uz/api/specialist
+
++ Request (application/json)
+
+        {
+            "cat_id": "5"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "specialist": [
+                {
+                    "id": "66",
+                    "first_name": "Охунова",
+                    "last_name": "Индира",
+                    "img": null
+                },
+                {
+                    "id": "76",
+                    "first_name": "Жураева ",
+                    "last_name": "Нигора",
+                    "img": null
+                },
+                {
+                    "id": "79",
+                    "first_name": "Комилхонова",
+                    "last_name": "Нигина",
+                    "img": null
+                }
+            ],
+            "comment": [
+                {
+                    "one": " Нархи киммат",
+                    "two": "Хонаси тартибсиз",
+                    "three": "Муомаласи яхшимас",
+                    "four": "Иши яхшимас"
+                }
+            ]
+        }
+        
+## Comment [POST]
+
+Comment jo'natish uchun api. 
+###### Url : http://carbonadowedding.uz/api/comment
+
++ Request (application/json)
+
+        {
+            "specialists_id": 5,
+            "rating" : 5,
+            "comment" : "string"
+            
+        }
+
++ Response 200 (application/json)
+
+        {
+            "success": true
+        }
